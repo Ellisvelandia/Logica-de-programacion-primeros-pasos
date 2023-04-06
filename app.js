@@ -67,8 +67,6 @@ function imprimirFuncion(frase) {
 
 imprimirFuncion("Hola soy una frase desde una funcion");
 
-
-
 function saltarLinea() {
   programa.innerHTML += "<hr>";
   programa.innerHTML += "<br>".repeat(5);
@@ -81,9 +79,34 @@ function imprimirLinea(frase) {
   saltarLinea();
 }
 
+function calcularImc(peso, altura, nombre, peso2, altura2, nombre2) {
+  imc = peso / (altura * altura);
+  imc2 = peso2 / (altura2 * altura2);
+  imprimirLinea(
+    "El IMC calculado de " +
+      nombre +
+      " y " +
+      nombre2 +
+      " es " +
+      Math.round(imc + imc2) / 2
+  );
+}
+
+function calcImc(peso, altura) {
+  return peso / (altura * altura);
+}
+
+nombre = prompt("Informe su nombre");
+pesoInformado = prompt( nombre +"Informe su peso");
+alturaInformado = prompt( nombre +"Informe su altura");
+imcCalculado = calcImc(pesoInformado, alturaInformado);
+
 let anhos = 2025;
-imprimirLinea( "hola amigos");
+imprimirLinea("hola amigos");
 imprimirLinea("Ellis tiene: " + (anhos - 2000) + " años");
 imprimirLinea("david tiene: " + (anhos - 1995) + " años");
 anhos = 2030;
 imprimirLinea("santiago tiene: " + (anhos - 2005) + " años");
+
+calcularImc(82, 1.78, "Ellis", 90, 1.8, "crisanto");
+imprimirLinea(nombre + " su imc calculado es " + imcCalculado);
